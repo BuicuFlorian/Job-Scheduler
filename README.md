@@ -20,14 +20,37 @@ Execute function at a certain time. Merely a human-readable [Node Schedule](http
 ```js
 const job = require('./dist/index.js');
 
-job.scheduleEveryYear(fn);
-job.scheduleEveryMonth(fn);
-job.scheduleEveryWeek(fn);
-job.scheduleEveryDayAt(12, 30, fn);
-job.scheduleEveryHour(fn);
-job.scheduleEveryHourAt(30, fn);
-job.scheduleEvery('monday at 5pm');
-job.scheduleAt('6:30 pm');
+job.scheduleEveryYear(() => {
+    console.log('This job will run every year.');
+});
+
+job.scheduleEveryMonth(() => {
+    console.log('This job will run every month.');
+});
+
+job.scheduleEveryWeek(() => {
+    console.log('This job will run every week.');
+});
+
+job.scheduleEveryDayAt(12, 30, () => {
+    console.log('This job will run every day at 12:30 PM.');
+});
+
+job.scheduleEveryHour(() => {
+    console.log('This job will run every hour.');
+});
+
+job.scheduleEveryHourAt(30, () => {
+    console.log('This job will run every hour at minute 30.');
+});
+
+job.scheduleEvery('monday at 5pm', () => {
+    console.log('This job will run every monday at 5 PM.');
+});
+
+job.scheduleAt('6:30 pm', () => {
+    console.log('This job will run every day at 6:30 PM.');
+});
 ```
 
 
